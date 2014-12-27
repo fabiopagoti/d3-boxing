@@ -4,7 +4,7 @@ body{
 }
 
 #ring{
-	background-color: blue;
+	background-color: gray;
 }
 
 #ring_text{
@@ -20,11 +20,20 @@ body{
 }
 
 .ring_string{
-	stroke: red;
+	stroke: black;
 	stroke-width:3;	
 }
+
 .fighter{
 	fill: white;
 	stroke: black;
 	stroke-width:5;
+}
+
+#fighter_1 .fighter_glove{
+	fill:red;
+}
+
+#fighter_2 .fighter_glove{
+	fill:blue;
 }

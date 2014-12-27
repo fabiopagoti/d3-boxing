@@ -1,20 +1,28 @@
 
 var boxing = {
 
-	ring_width: 800,
-	ring_height: 800,
+	// Ring attributes
+	ring_width: 500,
+	ring_height: 500,
 
+	// Fighter attributes
 	fighter_head_size: 20,
 	fighter_glove_size: 10,
 	fighter_arm_width: 5,
-	fighter_head_glove_distance: 60,
+	fighter_head_glove_distance_cx: 30,
+	fighter_head_glove_distance_cy: 50,
 
+
+	// Fighter DOM
 	fighter_1_id: "fighter_1",
 	fighter_2_id: "fighter_2",
 
-	setFighterId: function(id){
-		return id;
-	},
+	fighter_1: null,
+	fighter_2: null,
+
+	// setFighterId: function(id){
+	// 	return id;
+	// },
 
 	setFighterHead: function(id){
 		return (id + "_head");
@@ -28,21 +36,21 @@ var boxing = {
 		return (id + "_glove_right");
 	},
 
-	getFighterId: function(id){
-		return ("#" + id);
-	},
+	// getFighterId: function(id){
+	// 	return ("#" + id);
+	// },
 
-	getFighterHead: function(id){
-		return ("#" + id + "_head");
-	},
+	// getFighterHead: function(id){
+	// 	return ("#" + id + "_head");
+	// },
 
-	getFighterGloveLeft: function(id){
-		return ("#" + id + "_glove_left");
-	},
+	// getFighterGloveLeft: function(id){
+	// 	return ("#" + id + "_glove_left");
+	// },
 
-	getFighterGloveRight: function(id){
-		return ("#" + id + "_glove_right");
-	},
+	// getFighterGloveRight: function(id){
+	// 	return ("#" + id + "_glove_right");
+	// },
 
 
 	initRing: function(){
@@ -52,7 +60,7 @@ var boxing = {
 			.attr("height",boxing.ring_height);
 
 
-	// 	Poles
+		// 	Poles
 		var poles = [
 			{x1: .01,			y1: .01,			x2: .05,			y2: .05 },
 			{x1: (1 - .01),		y1: .01,			x2: (1 - .05),		y2: .05 },
@@ -61,15 +69,17 @@ var boxing = {
 		];
 
 		d3.select("#ring")
-			.selectAll(".ring_pole")
-			.data(poles)
-			.enter()
-				.append("line")
-					.attr("x1",function(d,i){ return boxing.ring_width * d.x1 })
-					.attr("y1",function(d,i){ return boxing.ring_height * d.y1 })
-					.attr("x2",function(d,i){ return boxing.ring_width * d.x2 })
-					.attr("y2",function(d,i){ return boxing.ring_height * d.y2 })
-					.classed("ring_pole", true);
+			.append("g")
+				.classed("ring_pole", true)
+				.selectAll(".ring_pole")
+				.data(poles)
+				.enter()
+					.append("line")
+						.attr("x1",function(d,i){ return boxing.ring_width * d.x1 })
+						.attr("y1",function(d,i){ return boxing.ring_height * d.y1 })
+						.attr("x2",function(d,i){ return boxing.ring_width * d.x2 })
+						.attr("y2",function(d,i){ return boxing.ring_height * d.y2 });
+							
 
 		// Strings
 
@@ -100,15 +110,17 @@ var boxing = {
 		];
 
 		d3.select("#ring")
-			.selectAll(".ring_string")
-			.data(strings)
-			.enter()
-				.append("line")
-					.attr("x1",function(d,i){ return boxing.ring_height	* d.x1;	})
-					.attr("y1",function(d,i){ return boxing.ring_width 	* d.y1;	})
-					.attr("x2",function(d,i){ return boxing.ring_height	* d.x2;	})
-					.attr("y2",function(d,i){ return boxing.ring_width 	* d.y2;	})
-					.classed("ring_string", true);
+			.append("g")
+				.classed("ring_string", true)
+				.selectAll(".ring_string")
+				.data(strings)
+				.enter()
+					.append("line")
+						.attr("x1",function(d,i){ return boxing.ring_width	* d.x1;	})
+						.attr("y1",function(d,i){ return boxing.ring_height * d.y1;	})
+						.attr("x2",function(d,i){ return boxing.ring_width	* d.x2;	})
+						.attr("y2",function(d,i){ return boxing.ring_height * d.y2;	});
+					
 
 		// Text
 		d3.select("#ring")
@@ -124,91 +136,130 @@ var boxing = {
 
 	initFighters: function(){
 
-		this.drawFighter(
-			boxing.fighter_1_id,
-			(boxing.ring_width / 4),
-			(boxing.ring_height / 2)
-			);
+		this.fighter_1 = this.drawFighter(
+							boxing.fighter_1_id,
+							"left");
 
-		this.drawFighter(
-			boxing.fighter_2_id,
-			(boxing.ring_width / 4 * 3),
-			(boxing.ring_height / 2)
-			);
+		this.fighter_2 = this.drawFighter(
+							boxing.fighter_2_id,
+							"right");
 	},
 
-	drawFighter: function (id, cx, cy){
+	initFighterTransform: function(fighter,corner){
+		
+		var transform;
+		var fighter_cx = fighter.attr("cx");
+		var fighter_cy = fighter.attr("cy");
+
+		if (corner === "left") {
+		transform = d3.svg.transform()
+		    			.translate(
+		    				function(d) { 
+		    					return [-200, 0];  // TODO: use scales
+		    				})
+					    .rotate(function(d,i){
+					    	return [0, fighter_cx,fighter_cy]
+					    });
+		    			// .scale(function(d) { 
+		    			// 	return d.size + 2 
+		    			// });
+
+		} else{
+		transform = d3.svg.transform()
+		    			.translate(
+		    				function(d) { 
+		    					return [+200, 0]; 
+		    				})
+					    .rotate(function(d,i){
+					    	return [180, fighter_cx,fighter_cy]
+					    });
+		    			// .scale(function(d) { 
+		    			// 	return d.size + 2 
+		    			// });
+
+		};
+
+		fighter.attr("transform", transform);
+
+	},
+
+	drawFighter: function (id, corner){
 
 
-		var fighter_id = boxing.getFighterId(id);
-
+		// A fighter is a g element
 		var new_fighter = d3.select("svg")
 							.append("g")
 								.attr("id", id)
-								.attr("cx", cx)
-								.attr("cy", cy)
+								.attr("cx", boxing.ring_width / 2)
+								.attr("cy", boxing.ring_height / 2)
 								.classed("fighter",true);
 
-		var fighter_position_cx = +d3.select(boxing.getFighterId(id)).attr("cx");
-		var fighter_position_cy = +d3.select(boxing.getFighterId(id)).attr("cy");
+		var fighter_position_cx = +new_fighter.attr("cx");
+		var fighter_position_cy = +new_fighter.attr("cy");
 
-		var fighter_position_glove_left_cx = +(fighter_position_cx + 10);
-		var fighter_position_glove_left_cy = +(fighter_position_cy - boxing.fighter_head_glove_distance);
+		var fighter_position_glove_left_cx = +(fighter_position_cx + boxing.fighter_head_glove_distance_cx);
+		var fighter_position_glove_left_cy = +(fighter_position_cy - boxing.fighter_head_glove_distance_cy);
 
-		var fighter_position_glove_right_cx = +(fighter_position_cx + 10);
-		var fighter_position_glove_right_cy = +(fighter_position_cy + boxing.fighter_head_glove_distance);
+		var fighter_position_glove_right_cx = +(fighter_position_cx + boxing.fighter_head_glove_distance_cx);
+		var fighter_position_glove_right_cy = +(fighter_position_cy + boxing.fighter_head_glove_distance_cy);
 
+		// Draw fighter
+			// Arms			
+			new_fighter
+				.append("line")
+					.attr("x1",fighter_position_cx )
+					.attr("y1",fighter_position_cy)
+					.attr("x2",fighter_position_glove_left_cx)
+					.attr("y2",fighter_position_glove_left_cy)
+					.classed("fighter_arm",true);
 
-	// Arms			
-		new_fighter
-			.append("line")
-				.attr("x1",fighter_position_cx )
-				.attr("y1",fighter_position_cy)
-				.attr("x2",fighter_position_glove_left_cx)
-				.attr("y2",fighter_position_glove_left_cy)
-				.classed("fighter_arm",true);
+			new_fighter
+				.append("line")
+					.attr("x1",fighter_position_cx)
+					.attr("y1",fighter_position_cy)
+					.attr("x2",fighter_position_glove_right_cx)
+					.attr("y2",fighter_position_glove_right_cy)
+					.classed("fighter_arm",true);
 
-		new_fighter
-			.append("line")
-				.attr("x1",fighter_position_cx)
-				.attr("y1",fighter_position_cy)
-				.attr("x2",fighter_position_glove_right_cx)
-				.attr("y2",fighter_position_glove_right_cy)
-				.classed("fighter_arm",true);
+			// Gloves	
+			new_fighter				
+				.append("circle")
+					.attr("id", boxing.setFighterGloveLeft(id))
+					.attr("cx", fighter_position_glove_left_cx)
+					.attr("cy", fighter_position_glove_left_cy)
+					.attr("r", boxing.fighter_glove_size)
+					.classed("fighter_glove", true);
+			
+			new_fighter				
+				.append("circle")
+					.attr("id", boxing.setFighterGloveLeft(id))
+					.attr("cx", fighter_position_glove_right_cx)
+					.attr("cy", fighter_position_glove_right_cy)
+					.attr("r", boxing.fighter_glove_size)
+					.classed("fighter_glove", true);
 
-	// Gloves	
-		new_fighter				
-			.append("circle")
-				.attr("id", boxing.setFighterGloveLeft(id))
-				.attr("cx", fighter_position_glove_left_cx)
-				.attr("cy", fighter_position_glove_left_cy)
-				.attr("r", boxing.fighter_glove_size)
-				.classed("fighter_glove", true);
-		
-		new_fighter				
-			.append("circle")
-				.attr("id", boxing.setFighterGloveLeft(id))
-				.attr("cx", fighter_position_glove_right_cx)
-				.attr("cy", fighter_position_glove_right_cy)
-				.attr("r", boxing.fighter_glove_size)
-				.classed("fighter_glove", true);
+			// Head
+			new_fighter				
+				.append("circle")
+					.attr("id", boxing.setFighterHead(id))
+					.attr("cx", fighter_position_cx)
+					.attr("cy", fighter_position_cy)
+					.attr("r", boxing.fighter_head_size)
+					.classed("fighter_head", true);
 
-	// Head
-		new_fighter				
-			.append("circle")
-				.attr("id", boxing.setFighterHead(id))
-				.attr("cx", fighter_position_cx)
-				.attr("cy", fighter_position_cy)
-				.attr("r", boxing.fighter_head_size)
-				.classed("fighter_head", true);
+		this.initFighterTransform(new_fighter,corner);
 
+		return new_fighter;
 	},
 
 
+	jab: function(fighter){
 
-	moveFighter: function(fighter,direction){
+	
+	},
 
-		function parseTransformIntoObject(a){ // http://stackoverflow.com/a/17838403/968144
+
+ 	parseTransformIntoObject: function(a){ // http://stackoverflow.com/a/17838403/968144
 		    var b={};
 		    for (var i in a = a.match(/(\w+\((\-?\d+\.?\d*,?)+\))+/g))
 		    {
@@ -216,104 +267,111 @@ var boxing = {
 		        b[c.shift()] = c;
 		    }
 		    return b;
-		};
+	},
 
+	moveFighter: function(fighter,move){
 
-		var current_tranlate_x = 0;
-		var current_tranlate_y = 0;
+		var transform_obj = this.parseTransformIntoObject(fighter.attr("transform"));
 
-		var fighter_current_transform = d3.select(this.getFighterId(fighter)).attr("transform");
-
-		if (fighter_current_transform) {
-			var transform_obj = parseTransformIntoObject(fighter_current_transform);
-			current_tranlate_x = +transform_obj.translate[0]; // x
-			current_tranlate_y = +transform_obj.translate[1]; // y
-		} 
-		
-		
 		var new_position = 0;
-
-		switch(direction){
+		// debugger;
+		switch(move){
 			case "Up":
-				new_position =  current_tranlate_y - 5;
-				d3.select(this.getFighterId(fighter))
-					.attr("transform", "translate(" + current_tranlate_x + "," + new_position +  ")");
+				transform_obj.translate[1] = +transform_obj.translate[1] - 5;
 				break;
 
 			case "Down":
-				new_position =  current_tranlate_y + 5;
-				d3.select(this.getFighterId(fighter))
-					.attr("transform", "translate(" + current_tranlate_x + "," + new_position +  ")");
+				transform_obj.translate[1] = +transform_obj.translate[1] + 5;
 				break;
 
 			case "Left":
-				new_position =  current_tranlate_x - 5;
-				d3.select(this.getFighterId(fighter))
-					.attr("transform", "translate(" + new_position + "," + current_tranlate_y +  ")");
+				transform_obj.translate[0] = +transform_obj.translate[0] - 5;
 				break;
 
 			case "Right":
-				new_position =  current_tranlate_x + 5;
-				d3.select(this.getFighterId(fighter))
-					.attr("transform", "translate(" + new_position + "," + current_tranlate_y +  ")");
+				transform_obj.translate[0] = +transform_obj.translate[0] + 5;
+				break;
+
+			case "Jab":
+				console.log("Jab!");
 				break;
 		}
+
+		var transform = d3.svg.transform()
+			    		.translate(transform_obj.translate) 
+					    .rotate(transform_obj.rotate );
+
+		fighter.attr("transform", transform);		
 				
 	},
 
-	
-
 	parseKeyToAction: function(keyIdentifier){
-		switch(direction){
-			case "Up" || "U+0057":
+		switch(keyIdentifier){
+			case "Up": 
+			case "U+0057":
 				return "Up";
-			case "Down" || "U+0053":
+
+			case "Down":
+			case "U+0053":
 				return "Down";
-			case "Left" || "U+0041":
+
+			case "Left":
+			case "U+0041":
 				return "Left";
-			case "Right" || "U+0044":
+
+			case "Right":
+			case "U+0044":
 				return "Right";
+
+			case "Shift":
+			case "U+0020":
+				return "Jab";
+
+						
 		};
 	},
 
 	map: [],
 
-	key_event: function(e,fighter,up,down,left,right,jab){
+	parseKeyToFighter: function(keyIdentifier){
+		switch(keyIdentifier){
 
-	    this.map[e.keyCode] = [];
-	    this.map[e.keyCode].push(e.type == 'keydown');
-	    this.map[e.keyCode].push(e.keyIdentifier);
+			case "U+0057":
+			case "U+0053":
+			case "U+0041":
+			case "U+0044":
+			case "U+0020":
+				return this.fighter_1;
 
-	    /*insert conditional here*/
-	    // console.log(this.map);
-	    // for (var i = 0; i < this.map.length; i++) {
-	    // 	if (this.map[0]) {
-	    // 		console.log(this.map[0][1]);
-	    // 	};
-	    // };
+			case "Up": 
+			case "Down":
+			case "Left":
+			case "Right":
+			case "Shift":
+				return this.fighter_2;
+			
+		};
+	},
 
-	    for (var i = 0; i < this.map.length; i++) {
-	    	// debugger;
-	    	if (this.map[i]) {
+	key_event: function(e,fighter){
+		// debugger;
+	    this.map[e.keyCode] = [];		
+		this.map[e.keyCode][0] = (e.type == 'keydown');
+	    this.map[e.keyCode][1] = (e.keyIdentifier);
 
-		    	if (this.map[i][0]) { // if key pressed
-		    		switch(this.map[i][1]){
-						case up:
-	    					boxing.moveFighter(fighter,"Up");
-	    					break;
-	    				case down:
-	    					boxing.moveFighter(fighter,"Down");
-							break;
-						case left:
-	    					boxing.moveFighter(fighter,"Left");
-							break;
-						case right:
-	    					boxing.moveFighter(fighter,"Right");
-							break;
-						case jab:
-							// TODO
-							break;	
-	    			}
+	    var action;
+	    var fighter_to_move;
+	    for (var i = 0; i < this.map.length; i++) { // TODO: refactor this loop... it is executed many times with no need
+	    	
+	    	if (this.map[i]) { // key is mapped
+		    	if (this.map[i][0]) { // key is pressed
+		    		action = this.parseKeyToAction(this.map[i][1]); 
+		    		fighter_to_move = this.parseKeyToFighter(this.map[i][1]);
+		    		// debugger;
+		    		if (fighter === fighter_to_move) {
+						boxing.moveFighter(fighter,action);
+		    		};
+		    		
 		    	};
 
 	    	};
@@ -330,67 +388,48 @@ d3.select("body").on('onload',
 	function(){
 		boxing.initRing();
 		boxing.initFighters();
-
 	}()
 );
 
-d3.select("body")
-	.on('keydown.foo2',
-		function(){
-			boxing.key_event(
-				d3.event, 
-				boxing.fighter_2_id, 
-				"Up", 
-				"Down", 
-				"Left", 
-				"Right", 
-				"U+0020"// Spacebar
-			);
-		}	
-	);
 
 d3.select("body")
-	.on('keydown.foo1',
+	.on('keydown.fighter_1',
 		function(){
 			boxing.key_event(
 				d3.event, 
-				boxing.fighter_1_id, 
-				"U+0057", 
-				"U+0053", 
-				"U+0041", 
-				"U+0044", 
-				"U+0021"// ???
+				boxing.fighter_1
 			);	
 		}
 	);
 
 d3.select("body")
-	.on('keyup.foo2',
+	.on('keydown.fighter_2',
 		function(){
 			boxing.key_event(
 				d3.event, 
-				boxing.fighter_2_id, 
-				"Up", 
-				"Down", 
-				"Left", 
-				"Right", 
-				"U+0020"// Spacebar
+				boxing.fighter_2
 			);
 		}	
 	);
 
+
 d3.select("body")
-	.on('keyup.foo1',
+	.on('keyup.fighter_1',
 		function(){
 			boxing.key_event(
 				d3.event, 
-				boxing.fighter_1_id, 
-				"U+0057", 
-				"U+0053", 
-				"U+0041", 
-				"U+0044", 
-				"U+0021"// ???
+				boxing.fighter_1
 			);	
 		}
 	);
 
+d3.select("body")
+	.on('keyup.fighter_2',
+		function(){
+			boxing.key_event(
+				d3.event, 
+				boxing.fighter_2
+				// "U+0020"// Spacebar
+			);
+		}	
+	);
