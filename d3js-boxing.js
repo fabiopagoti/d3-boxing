@@ -1,8 +1,8 @@
 
 var boxing = {
 
-	ring_width: 500,
-	ring_height: 500,
+	ring_width: 800,
+	ring_height: 800,
 
 	fighter_head_size: 20,
 	fighter_glove_size: 10,
@@ -51,6 +51,66 @@ var boxing = {
 			.attr("width",boxing.ring_width)
 			.attr("height",boxing.ring_height);
 
+
+	// 	Poles
+		var poles = [
+			{x1: .01,			y1: .01,			x2: .05,			y2: .05 },
+			{x1: (1 - .01),		y1: .01,			x2: (1 - .05),		y2: .05 },
+			{x1: .01,			y1: (1 - .01),		x2: .05,			y2: (1 - .05) },
+			{x1: (1 - .01),		y1: (1 - .01),		x2: (1 - .05),		y2: (1 - .05) },
+		];
+
+		d3.select("#ring")
+			.selectAll(".ring_pole")
+			.data(poles)
+			.enter()
+				.append("line")
+					.attr("x1",function(d,i){ return boxing.ring_width * d.x1 })
+					.attr("y1",function(d,i){ return boxing.ring_height * d.y1 })
+					.attr("x2",function(d,i){ return boxing.ring_width * d.x2 })
+					.attr("y2",function(d,i){ return boxing.ring_height * d.y2 })
+					.classed("ring_pole", true);
+
+		// Strings
+
+		var strings = [
+
+		// Left strings
+			{x1: .02,			y1: .02,			x2: .02,			y2: (1 - .02) },
+			{x1: .03,			y1: .03,			x2: .03,			y2: (1 - .03) },
+			{x1: .04,			y1: .04,			x2: .04,			y2: (1 - .04) },
+
+		// Top strings
+			{x1: .02,			y1: .02,			x2: (1 - .02),		y2: .02 },
+			{x1: .03,			y1: .03,			x2: (1 - .03),		y2: .03 },
+			{x1: .04,			y1: .04,			x2: (1 - .04),		y2: .04 },
+
+
+		// Right strings
+			{x1: (1 - .02),		y1: .02,			x2: (1 - .02),		y2: (1 - .02) },
+			{x1: (1 - .03),		y1: .03,			x2: (1 - .03),		y2: (1 - .03) },
+			{x1: (1 - .04),		y1: .04,			x2: (1 - .04),		y2: (1 - .04) },
+
+
+		// Bottom strings
+			{x1: .02,		y1: (1 - .02),			x2: (1 - .02),		y2: (1 - .02) },
+			{x1: .03,		y1: (1 - .03),			x2: (1 - .03),		y2: (1 - .03) },
+			{x1: .04,		y1: (1 - .04),			x2: (1 - .04),		y2: (1 - .04) },
+
+		];
+
+		d3.select("#ring")
+			.selectAll(".ring_string")
+			.data(strings)
+			.enter()
+				.append("line")
+					.attr("x1",function(d,i){ return boxing.ring_height	* d.x1;	})
+					.attr("y1",function(d,i){ return boxing.ring_width 	* d.y1;	})
+					.attr("x2",function(d,i){ return boxing.ring_height	* d.x2;	})
+					.attr("y2",function(d,i){ return boxing.ring_width 	* d.y2;	})
+					.classed("ring_string", true);
+
+		// Text
 		d3.select("#ring")
 			.append("text")
 				.attr("id", "ring_text")
@@ -99,7 +159,6 @@ var boxing = {
 		var fighter_position_glove_right_cy = +(fighter_position_cy + boxing.fighter_head_glove_distance);
 
 
-
 	// Arms			
 		new_fighter
 			.append("line")
@@ -146,23 +205,24 @@ var boxing = {
 	},
 
 
+
 	moveFighter: function(fighter,direction){
 
-		function parseTransformIntoObject(a) // http://stackoverflow.com/a/17838403/968144
-			{
-			    var b={};
-			    for (var i in a = a.match(/(\w+\((\-?\d+\.?\d*,?)+\))+/g))
-			    {
-			        var c = a[i].match(/[\w\.\-]+/g);
-			        b[c.shift()] = c;
-			    }
-			    return b;
-			};
+		function parseTransformIntoObject(a){ // http://stackoverflow.com/a/17838403/968144
+		    var b={};
+		    for (var i in a = a.match(/(\w+\((\-?\d+\.?\d*,?)+\))+/g))
+		    {
+		        var c = a[i].match(/[\w\.\-]+/g);
+		        b[c.shift()] = c;
+		    }
+		    return b;
+		};
 
-		var fighter_current_transform = d3.select(this.getFighterId(fighter)).attr("transform");
 
 		var current_tranlate_x = 0;
 		var current_tranlate_y = 0;
+
+		var fighter_current_transform = d3.select(this.getFighterId(fighter)).attr("transform");
 
 		if (fighter_current_transform) {
 			var transform_obj = parseTransformIntoObject(fighter_current_transform);
@@ -203,34 +263,60 @@ var boxing = {
 
 	
 
+	parseKeyToAction: function(keyIdentifier){
+		switch(direction){
+			case "Up" || "U+0057":
+				return "Up";
+			case "Down" || "U+0053":
+				return "Down";
+			case "Left" || "U+0041":
+				return "Left";
+			case "Right" || "U+0044":
+				return "Right";
+		};
+	},
+
 	map: [],
 
 	key_event: function(e,fighter,up,down,left,right,jab){
-	    // e = e || event; // to deal with IE
 
-	    this.map[e.keyCode] = e.type == 'keydown';
+	    this.map[e.keyCode] = [];
+	    this.map[e.keyCode].push(e.type == 'keydown');
+	    this.map[e.keyCode].push(e.keyIdentifier);
+
 	    /*insert conditional here*/
-	    console.log(this.map);
+	    // console.log(this.map);
+	    // for (var i = 0; i < this.map.length; i++) {
+	    // 	if (this.map[0]) {
+	    // 		console.log(this.map[0][1]);
+	    // 	};
+	    // };
 
 	    for (var i = 0; i < this.map.length; i++) {
 	    	// debugger;
-			switch(e.keyIdentifier){
-					case up:
-    					boxing.moveFighter(fighter,"Up");
-    					break;
-    				case down:
-    					boxing.moveFighter(fighter,"Down");
-						break;
-					case left:
-    					boxing.moveFighter(fighter,"Left");
-						break;
-					case right:
-    					boxing.moveFighter(fighter,"Right");
-						break;
-					case jab:
-						// TODO
-						break;	
-    			}
+	    	if (this.map[i]) {
+
+		    	if (this.map[i][0]) { // if key pressed
+		    		switch(this.map[i][1]){
+						case up:
+	    					boxing.moveFighter(fighter,"Up");
+	    					break;
+	    				case down:
+	    					boxing.moveFighter(fighter,"Down");
+							break;
+						case left:
+	    					boxing.moveFighter(fighter,"Left");
+							break;
+						case right:
+	    					boxing.moveFighter(fighter,"Right");
+							break;
+						case jab:
+							// TODO
+							break;	
+	    			}
+		    	};
+
+	    	};
 
 	    };
 			
