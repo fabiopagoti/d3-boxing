@@ -1,0 +1,21 @@
+
+body{
+	text-align: center;
+}
+
+#ring{
+	background-color: blue;
+}
+
+#ring_text{
+	fill: white;
+	font-size: 80px;
+	text-anchor:middle;
+	opacity: .5;
+}
+
+.fighter{
+	fill: white;
+	stroke: black;
+	stroke-width:5;
+}

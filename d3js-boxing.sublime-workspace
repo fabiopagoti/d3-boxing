@@ -1,0 +1,557 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ran",
+				"range"
+			],
+			[
+				"r_",
+				"r_max"
+			],
+			[
+				"r_m",
+				"r_max"
+			],
+			[
+				"if",
+				"ife	if … else"
+			],
+			[
+				"ob",
+				"obj_b"
+			],
+			[
+				"obj",
+				"obj_a"
+			],
+			[
+				"fo",
+				"form	Tag"
+			],
+			[
+				"b",
+				"border	Attr"
+			],
+			[
+				"arr",
+				"array_a"
+			],
+			[
+				"r",
+				"rgb_a"
+			],
+			[
+				"back",
+				"background-color:   (property)"
+			],
+			[
+				"cou",
+				"count_max"
+			],
+			[
+				"str",
+				"string_b"
+			],
+			[
+				"st",
+				"string_b"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"lo",
+				"logMe"
+			],
+			[
+				"cy",
+				"cy_end"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"foin",
+				"font-weight"
+			],
+			[
+				"eas",
+				"easeMe"
+			],
+			[
+				"selec",
+				"selectAll"
+			],
+			[
+				"stro",
+				"stroke-width"
+			],
+			[
+				"select",
+				"selection"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"my_",
+				"my_circles"
+			],
+			[
+				"m",
+				"my_data"
+			],
+			[
+				"remove",
+				"removed_elements"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"font-",
+				"font-variant"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"check",
+				"checkbox"
+			],
+			[
+				"id",
+				"id=  (attribute)"
+			],
+			[
+				"pro",
+				"property"
+			],
+			[
+				"debu",
+				"debugger  (keyword)"
+			],
+			[
+				"link",
+				"link	Tag"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"key",
+				"key_selected"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"debug",
+				"debugger  (keyword)"
+			],
+			[
+				"main",
+				"mainModel"
+			],
+			[
+				"man",
+				"mainModel"
+			],
+			[
+				"get",
+				"getCore"
+			],
+			[
+				"ad",
+				"admin-gui"
+			],
+			[
+				"admi",
+				"admin-gui"
+			],
+			[
+				"ma",
+				"manager-status"
+			],
+			[
+				"mana",
+				"manager-status"
+			],
+			[
+				"rol",
+				"roles"
+			],
+			[
+				"us",
+				"username"
+			],
+			[
+				"role",
+				"rolename"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 247.0,
+		"selected_items":
+		[
+			[
+				"html",
+				"Snippet: htmlboiler"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/fabiopagoti/Dev/js/D3JS - Boxing"
+	],
+	"file_history":
+	[
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 072 - scales - threshold/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 071 - scales - quantile/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 070 - scales - quantize/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 069 - scales - log/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 068 - scales - power/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 067 - scales - linear nice/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/d3/d3.js",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 066 - scales - linear clamp/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 065 - scales - linear interpolate/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 065 - scales - linear interpolator/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 064 - scales - linear rangeRound/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 063 - scales - linear/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 062 - requests - xhr/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 062 - requests - xhr/data.txt",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 062 - requests - xhr/fruits.csv",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 013 - selections - insert/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 061 - transition - interpolateObject/index.html",
+		"/Users/fabiopagoti/Library/Application Support/Sublime Text 3/Packages/GoSublime/USAGE.md",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 060 - transition - interpolateArray/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 059 - transition - interpolateLab/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 057 - transition - interpolateHsl/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 058 - transition - interpolateHcl/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 056 - transition - interpolateRgb/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 055 - transition - interpolateString/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 007 - selections - set and get style/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 054 - transition - interpolateRound/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 053 - transition - interpolateNumber/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 052 - transition - interpolation/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 051 - transition timers/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 050 - transition ease/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 049 - transition - remove/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 048 - transition text/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 047 - transition style/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 047 - transition style/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 046 - transition attr/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 046 - transition attr/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 045 - transition ease/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 044 - transition duration/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 043 - transition delay/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 042 - transition/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 041 - extension selection/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 011 - selections - set and get html/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 040 - control size/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 038 - control node/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 038 - control empty/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 037 - call/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 036 - control each/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 035 - subselections - selectAll/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 034 - subselections - select/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 033 - interrupt/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 027 - order/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 032 - transition/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 031 - touch/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 031 - touches/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 030 - mouse/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 029 - event/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 028 - on/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 003 - select node/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 014 - selections - remove/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 026 - sort/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 024 - datum/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 025 - filter/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/template/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/template/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 022 - data - enter/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 023 - data - remove/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 021 - data - enter/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 022 - data - update/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 016 - svg - rect/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 021 - data - update/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 021 - svg - line generator/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 020 - svg - polygon/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 019 - svg - polyline/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 018 - svg - ellipse/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 018 - svg - eclipse/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 017 - svg - circle/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 015 - svg - line/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 016 - svg - squares/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 015 - svg - lines/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 012 - selections - append/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 010 - selections - set and get text/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 010 - selections - set and get text/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 009 - selections - set and get property function/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 9 - selections - set and get property function/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 9 - selections - set and get property function/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 8 - selections - set and get property/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 8 - selections - set and get property/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 7 - selections - set and get style/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 7 - selections - set and get style/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 6 - selections - set and get class/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 6 - selections - set and get class/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 5 - selections - set attribute/style.css",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 5 - selections - set attribute/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 1 - select/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 4 - select all nodes/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 2 - select all/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/exercise 3 - select node/index.html",
+		"/Users/fabiopagoti/Dev/js/d3js/d3/d3.opa.js",
+		"/Users/fabiopagoti/Library/Application Support/Sublime Text 3/Packages/User/STProjectMaker.sublime-settings",
+		"/Users/fabiopagoti/Dev/openui5/polygon-stats-d3/index.html",
+		"/Users/fabiopagoti/Dev/openui5/polygon-stats-d3/model/pokemon.json",
+		"/Users/fabiopagoti/Dev/openui5/NYT-Campaign-Finance/index.html",
+		"/Users/fabiopagoti/Library/Application Support/Sublime Text 3/Packages/GoSublime/GoSublime.sublime-settings",
+		"/Users/fabiopagoti/Library/Application Support/Sublime Text 3/Packages/GoSublime/CHANGELOG.md",
+		"/Users/fabiopagoti/Dev/openui5/polygon-stats-d3/controls/br.com.hanabrasil.polygonStats.js",
+		"/Users/fabiopagoti/Dev/openui5/polygon-stats-d3/model/test.json",
+		"/Users/fabiopagoti/Library/Application Support/Sublime Text 3/Packages/SublimeUI5/Templates/UI5 JVC Tiny App/NavigationRoute.sublime-workspace",
+		"/Users/fabiopagoti/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/fabiopagoti/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/nyt-launchpad-m/main.view.js",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/nyt-launchpad-m/main.controller.js",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/index.html",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/apps/sample_app/sample_app.html",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/apps/sample_app/views/first_page.view.js",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/apps/sample_app/views/first_page.controller.js",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/apps/first_page.view.js",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/apps/first_page.controller.js",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/apps/sample_app.html",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/nyt-launchpad-m/other_page.view.js",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/app",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/nyt-launchpad-m/other_page.controller.js",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/model/model.json",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/README.mdown",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/i18n/messageBundle_pt.properties",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/i18n/messageBundle.properties",
+		"/Users/fabiopagoti/Dev/hana/workspace_eclipse_hana/NYT-Launchpad-M/WebContent/i18n/messageBundle.properties.pt",
+		"/Users/fabiopagoti/Library/Application Support/Sublime Text 3/Packages/STProjectMaker/STProjectMaker.sublime-settings",
+		"/Users/fabiopagoti/Dev/hana/openui5-runtime/resources/sap-ui-core-dbg.js"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"min(",
+			"3.min(",
+			".min(",
+			"min(",
+			"max(",
+			"my_first_scale",
+			"nice",
+			"nice(",
+			"hcl_a",
+			"hcl_b",
+			"hsl_b",
+			"hsl_a",
+			"rgb_b",
+			"rgb_a",
+			"string_b",
+			"string_a",
+			"cyan",
+			"node_text",
+			"009",
+			"d3.select ",
+			"d3.select",
+			"\",\n",
+			"jpg",
+			"nyt-article-search",
+			"sample_app.",
+			"nyt-launchpad-m",
+			"other_page",
+			"numberUnit : \"{i18n>Tile_Info",
+			"Title",
+			"page",
+			"info : \"{i18n>Tile_Title",
+			"Title",
+			"resource",
+			"read",
+			"UI5En",
+			"demokit"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"my_scale",
+			"lab_a",
+			"lab_b",
+			"hcl_b",
+			"hcl_a",
+			"hsl_b",
+			"hsl_a",
+			"rgb_b",
+			"rgb_a",
+			"node_html",
+			"png",
+			"view",
+			"views.",
+			"sample_app",
+			"first_page",
+			"numberUnit : \"{i18n>Tile_NumberUnit",
+			"NumberUnit",
+			"view",
+			"page",
+			"info : \"{i18n>Tile_Info",
+			"Info"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MarGo-output":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "d3js-boxing.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 359.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
