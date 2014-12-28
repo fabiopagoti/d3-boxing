@@ -12,8 +12,8 @@ Ring.prototype.draw = function(){
 		height = this.height;
 
 	d3.select("#ring")
-		.attr("width",width)
-		.attr("height",height);
+		.attr("width",width+"px")
+		.attr("height",height)+"px";
 
 
 	// 	Poles
