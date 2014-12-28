@@ -1,0 +1,46 @@
+
+body{
+	text-align: center;
+	background-color: lightgray;
+}
+
+#ring{
+	background-color: gray;
+}
+
+#ring_text{
+	fill: white;
+	font-size: 80px;
+	text-anchor:middle;
+	opacity: .5;
+}
+
+.ring_pole{
+	stroke: white;
+	stroke-width:5;
+}
+
+.ring_string{
+	stroke: black;
+	stroke-width:3;	
+}
+
+.fighter{
+	fill: white;
+	stroke: black;
+	stroke-width:5;
+}
+
+.fighter_arm{
+	border: 1px;
+}
+.fighter_head{
+	/*opacity: .3;*/
+}
+#fighter_1 .fighter_glove{
+	fill:red;
+}
+
+#fighter_2 .fighter_glove{
+	fill:blue;
+}
