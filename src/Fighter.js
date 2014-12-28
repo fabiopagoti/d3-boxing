@@ -118,7 +118,7 @@ Fighter.prototype.transform = function(){
 	transform = d3.svg.transform()
 	    			.translate(
 	    				function(d) { 
-	    					return [d3Boxing.ring.width/6, d3Boxing.ring.height/6];  // TODO: use scales
+	    					return [Math.round(d3Boxing.ring.width/6), Math.round(d3Boxing.ring.height/6)];  // TODO: use scales
 	    				})
 				    .rotate(function(d,i){
 				    	return [0,0,0]
@@ -131,7 +131,7 @@ Fighter.prototype.transform = function(){
 	transform = d3.svg.transform()
 	    			.translate(
 	    				function(d) { 
-	    					return [d3Boxing.ring.width/6*5, d3Boxing.ring.height/6*5]; 
+	    					return [Math.round(d3Boxing.ring.width/6*5), Math.round(d3Boxing.ring.height/6*5)]; 
 	    				})
 				    .rotate(function(d,i){
 				    	return [180, fighter_cx,fighter_cy]
@@ -164,19 +164,27 @@ Fighter.prototype.move = function(direction){
 	
 	switch(direction){
 		case "Up":
-			transform_obj.translate[1] = +transform_obj.translate[1] - 5;
+			if ((transform_obj.translate[1] - this.head_glove_distance_cy ) >= (.04 * d3Boxing.ring.height)) {
+				transform_obj.translate[1] = +transform_obj.translate[1] - 5;
+			};
 			break;
 
 		case "Down":
-			transform_obj.translate[1] = +transform_obj.translate[1] + 5;
+			if ((transform_obj.translate[1] ) <= ((1-.04) * d3Boxing.ring.height - this.head_glove_distance_cy)) {
+				transform_obj.translate[1] = +transform_obj.translate[1] + 5;
+			};
 			break;
 
 		case "Left":
-			transform_obj.translate[0] = +transform_obj.translate[0] - 5;
+			if ((transform_obj.translate[0] - this.head_size ) >= (.04 * d3Boxing.ring.width)) {
+				transform_obj.translate[0] = +transform_obj.translate[0] - 5;
+			};
 			break;
 
 		case "Right":
-			transform_obj.translate[0] = +transform_obj.translate[0] + 5;
+			if ((transform_obj.translate[0]) <= ((1-.04) * d3Boxing.ring.width - this.head_size)) {
+				transform_obj.translate[0] = +transform_obj.translate[0] + 5;
+			};
 			break;
 	}
 
@@ -190,7 +198,7 @@ Fighter.prototype.move = function(direction){
 }
 
 Fighter.prototype.jab = function(){
-	console.log(id + " jabs!");
+	//console.log(id + " jabs!");
 
 	var id = this.id;
 
@@ -202,27 +210,19 @@ Fighter.prototype.jab = function(){
 	if (Math.random()<.5) {
 		jab_arm = d3.select("#" + id + "_left_arm"); // TODO: verify which arm is the best to jab
 		transform = d3.svg.transform()
-						    .rotate([90,0,0]);
+						    .rotate([90,0,0])
+						    .scale(1);// TODO: create superpunch!
 	} else{
 		jab_arm = d3.select("#" + id + "_right_arm"); // TODO: verify which arm is the best to jab
 		transform = d3.svg.transform()
 						    .rotate([-90,0,0]);
 	};
 	
-
-	d3.select("#ring").
-		append("circle")
-		.attr("cx", fighter_cx)
-		.attr("cy", fighter_cy)
-		.attr("r", 5)
-		.attr("fill", "pink");
-
 	jab_arm
 		.transition()
 			.duration(500)
 			.attr("transform", transform)
 		.transition()
 			.attr("transform", "");
-
 
 }
