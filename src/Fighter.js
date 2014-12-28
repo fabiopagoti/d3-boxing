@@ -4,7 +4,7 @@ function Fighter(id,corner){
 	this.id = id;
 	this.corner = corner;
 
-	this.head_size = d3Boxing.ring.width / 30;
+	this.head_size = d3Boxing.ring.width / 25;
 	this.glove_size = this.head_size / 2;
 	this.arm_width = this.glove_size / 2;
 	this.head_glove_distance_cx = this.head_size * 0;
